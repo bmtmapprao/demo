@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-web-service
+  labels:
+    name: ingress-web-service
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: demok8s.local.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: web-service
+            port: 
+              number: 80
